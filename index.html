@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>□の式 10問チャレンジ</title>
+  <meta name="description" content="左右に同じ□がある式を、3ステップで練習できる暗算ドリル">
+  <style>
+    :root{--ink:#21304a;--blue:#4d63d9;--blue2:#7387ee;--line:#dce2f3}*{box-sizing:border-box}
+    body{margin:0;color:var(--ink);font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;background:radial-gradient(circle at 10% 0%,#fff3c8 0,transparent 30%),radial-gradient(circle at 100% 80%,#dfe8ff 0,transparent 35%),#f7f8fd;min-height:100vh}
+    button{font:inherit}.page{width:min(720px,100%);margin:0 auto;padding:28px 18px 36px}header{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:16px}
+    .eyebrow{margin:0 0 4px;color:#69738a;font-size:13px;font-weight:800;letter-spacing:.12em}h1{margin:0;font-size:29px;letter-spacing:.02em}h1 span{font-size:17px;font-weight:700;color:#69738a}
+    .score{background:#fff;border:1px solid var(--line);box-shadow:0 6px 18px #31436a14;border-radius:99px;padding:9px 16px;font-size:13px;white-space:nowrap}.score strong{color:var(--blue);font-size:20px;margin-left:5px}
+    .progress{height:8px;background:#e3e7f2;border-radius:99px;overflow:hidden;margin-bottom:18px}.progress span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--blue),#f07fa3);transition:width .35s}
+    .card{background:#fff;border:1px solid #e3e7f2;border-radius:28px;padding:28px;box-shadow:0 16px 50px #35446f18}.question-meta{display:flex;justify-content:space-between;color:#778198;font-weight:700;font-size:13px}.question-meta span:last-child{background:#eef0ff;color:#596bd0;padding:5px 10px;border-radius:99px}
+    .step-label{margin:22px 0 0;color:#78829a;font-size:11px;font-weight:900;letter-spacing:.1em}.equation{margin:14px -8px 22px;text-align:center;font-family:Arial,sans-serif;font-size:clamp(28px,7vw,46px);font-weight:750;letter-spacing:-.04em;white-space:nowrap}.equation b,.equation em{font-style:normal;font-weight:500;color:#8a93a8;margin:0 .08em}.equation i{color:var(--blue);font-style:normal}
+    .middle-step{width:min(390px,100%);min-height:112px;margin:0 auto 18px;padding:13px 16px;display:flex;flex-direction:column;justify-content:center;text-align:center;background:#fff8de;border:2px solid #f2dc8c;border-radius:16px}.middle-step>p{margin:0 0 6px;color:#987622;font-size:11px;font-weight:900;letter-spacing:.08em}.step-question small,.middle-step>small{display:block;margin:0 0 7px;color:#7b7564;font-size:12px}.step-question strong,.completed-equation{display:block;font-family:Arial,sans-serif;font-size:26px}.step-question i{display:inline-flex;min-width:54px;justify-content:center;padding:2px 8px;color:var(--blue);background:#fff;border:2px solid #e1c55b;border-radius:9px;font-style:normal}.completed-equation em,.completed-equation b{font-style:normal;font-weight:500;color:#9299aa;margin:0 8px}.completed-equation i{color:var(--blue);font-style:normal}.try-again{margin:9px auto -3px;padding:6px 10px;color:#a53d55;background:#fff1f4;border-radius:9px;font-size:12px;font-weight:800}
+    .answer-label{width:180px;margin:0 auto 5px}.answer-box{margin:0 auto 22px;width:180px;height:74px;display:flex;align-items:center;justify-content:center;gap:15px;border:3px solid var(--line);border-radius:18px;background:#f9faff;font-size:22px}.answer-box strong{min-width:48px;color:var(--blue);font-size:36px;text-align:center}.answer-box.is-correct{border-color:#37ad72;background:#f0fff7}.answer-box.is-wrong{border-color:#ec7590;background:#fff5f7}
+    .keypad{width:min(330px,100%);margin:0 auto 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.keypad button{height:54px;border:0;border-radius:14px;background:#f0f2fa;color:var(--ink);font-size:21px;font-weight:800;cursor:pointer;box-shadow:inset 0 -2px 0 #d9dfef}.keypad button:active{transform:translateY(1px);box-shadow:none}.keypad .small{font-size:13px;color:#667188}
+    .primary{border:0;border-radius:15px;background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;font-weight:800;font-size:17px;cursor:pointer;box-shadow:0 9px 18px #4d63d940}.primary:disabled{opacity:.35;cursor:default;box-shadow:none}.wide{display:flex;align-items:center;justify-content:center;width:min(330px,100%);min-height:56px;margin:0 auto}.next{gap:30px}.next span{font-size:25px}
+    .feedback{width:min(460px,100%);margin:0 auto 20px;border-radius:18px;padding:16px 18px}.feedback.correct{background:#edfbf4;color:#18784a}.feedback.wrong{background:#fff1f4;color:#aa3551}.feedback h2{margin:0 0 12px;text-align:center;font-size:20px}.howto{background:#fff;color:#48536b;border-radius:13px;padding:12px 15px;font-size:14px;line-height:1.65}.howto p{margin:2px 0}.footer-tip{text-align:center;color:#8991a4;font-size:13px;margin:16px 0 0}.result-page{min-height:100vh;display:grid;place-items:center}.result-card{text-align:center;padding:48px 28px}.result-mark{font-size:64px}.result-card h1 strong{color:var(--blue);font-size:70px}.result-message{color:#69738a;margin:8px 0 28px}
+    @media(max-width:540px){.page{padding:18px 12px 28px}.card{padding:20px 14px;border-radius:22px}h1{font-size:23px}h1 span{display:block;font-size:14px}.score{padding:7px 12px}.equation{font-size:clamp(25px,7.5vw,36px)}.keypad button{height:50px}}
+  </style>
+</head>
+<body><main id="app"></main>
+<script>
+  let problems=[],index=0,stage=0,input="",mistake=false,checked=false,correct=null,score=0,finished=false;
+  function makeProblem(level){const mc=level<4?5:level<8?8:12,ma=level<4?12:level<8?25:45;for(;;){const a=2+Math.floor(Math.random()*(mc-1)),c=2+Math.floor(Math.random()*(mc-1)),answer=2+Math.floor(Math.random()*(ma-1)),d=2+Math.floor(Math.random()*(level<7?18:35)),n=(a+c)*answer+c*d;if(n%a)continue;const b=n/a;if(b<=answer||b>120)continue;return{a,b,c,d,answer}}}
+  function makeSet(){const seen=new Set(),r=[];while(r.length<10){const p=makeProblem(r.length),k=`${p.a}-${p.b}-${p.c}-${p.d}`;if(!seen.has(k)){seen.add(k);r.push(p)}}return r}
+  function esc(v){return String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+  function resetQuestion(){stage=0;input="";mistake=false;checked=false;correct=null}
+  function restart(){problems=makeSet();index=0;score=0;finished=false;resetQuestion();render()}
+  function enter(v){if(checked||input.length>=4)return;mistake=false;input=input==="0"?v:input+v;render()}
+  function clearInput(){input="";mistake=false;render()}
+  function back(){input=input.slice(0,-1);mistake=false;render()}
+  function checkAnswer(){if(!input)return;const p=problems[index],left=p.a*p.b,right=p.c*p.d,targets=[left-right,p.a+p.c,p.answer];if(Number(input)===targets[stage]){if(stage<2){stage++;input="";mistake=false}else{correct=true;checked=true;score++}}else{if(stage<2)mistake=true;else{correct=false;checked=true}}render()}
+  function next(){if(index===9){finished=true}else{index++;resetQuestion()}render()}
+  function keypad(){return `<div class="keypad" aria-label="数字入力">${[1,2,3,4,5,6,7,8,9].map(n=>`<button onclick="enter('${n}')">${n}</button>`).join("")}<button class="small" onclick="clearInput()">クリア</button><button onclick="enter('0')">0</button><button class="small" onclick="back()" aria-label="一文字消す">⌫</button></div>`}
+  function render(){
+    const app=document.getElementById("app");
+    if(finished){app.innerHTML=`<main class="page result-page"><section class="card result-card"><div class="result-mark">${score>=8?"🎉":score>=5?"👏":"🌱"}</div><p class="eyebrow">10問チャレンジ 終了！</p><h1><strong>${score}</strong><span> / 10 問正解</span></h1><p class="result-message">${score===10?"全問正解！すばらしい！":score>=8?"あと少しでパーフェクト！":"解き方を確認して、もう一度挑戦しよう。"}</p><button class="primary wide" onclick="restart()">新しい10問に挑戦</button></section></main>`;return}
+    const p=problems[index],left=p.a*p.b,right=p.c*p.d,difference=left-right,divisor=p.a+p.c;
+    let middle=stage===0?`<div class="step-question"><small>まず、□のない数を引き算</small><strong>${left} − ${right} = <i>${esc(input||"?")}</i></strong></div>`:stage===1?`<div class="step-question"><small>次に、□の前の数を足し算</small><strong>${p.a} ＋ ${p.c} = <i>${esc(input||"?")}</i></strong></div>`:`<strong class="completed-equation">${difference} <em>=</em> ${divisor} <b>×</b> <i>□</i></strong><small>ここまで自分でできたね！</small>`;
+    const answer=stage===2?`<p class="step-label answer-label">STEP 3　□を求める</p><div class="answer-box ${checked?(correct?"is-correct":"is-wrong"):""}"><span>□ =</span><strong>${esc(input||"?")}</strong></div>`:"";
+    const feedback=checked?`<div class="feedback ${correct?"correct":"wrong"}"><h2>${correct?"正解！":`おしい！ 答えは ${p.answer}`}</h2><div class="howto"><p>① <strong>${left} − ${right} = ${difference}</strong></p><p>② <strong>${p.a} + ${p.c} = ${divisor}</strong></p><p>③ <strong>${difference} ÷ ${divisor} = ${p.answer}</strong></p></div></div>`:"";
+    app.innerHTML=`<main class="page"><header><div><p class="eyebrow">暗算トレーニング</p><h1>□の式 <span>10問チャレンジ</span></h1></div><div class="score">正解 <strong>${score}</strong></div></header><div class="progress"><span style="width:${(index+1)*10}%"></span></div><section class="card"><div class="question-meta"><span>第 ${index+1} 問</span><span>${index<4?"ウォームアップ":index<8?"ステップアップ":"チャレンジ"}</span></div><p class="step-label">STEP 1　もとの式</p><div class="equation">${p.a}<b>×</b>(${p.b}−<i>□</i>) <em>=</em> ${p.c}<b>×</b>(${p.d}+<i>□</i>)</div><div class="middle-step"><p>STEP 2　数をまとめよう</p>${middle}${mistake?'<div class="try-again">ちがうようです。もう一度考えてみよう</div>':""}</div>${answer}${feedback}${!checked?keypad()+`<button class="primary wide" ${input?"":"disabled"} onclick="checkAnswer()">${stage<2?"この答えで進む":"答え合わせ"}</button>`:`<button class="primary wide next" onclick="next()">${index===9?"結果を見る":"次の問題へ"} <span>→</span></button>`}</section><p class="footer-tip">一つずつ計算すれば、むずかしくないよ</p></main>`;
+  }
+  problems=makeSet();render();
+</script>
+</body>
+</html>
